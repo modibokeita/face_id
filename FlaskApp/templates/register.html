@@ -1,0 +1,173 @@
+<head>
+    
+        <style>
+              body{
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                background: #e6eaed;
+            }
+
+            .box{
+                width: 400px;
+                height: 520;
+                padding: 20px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                background: #191919;
+                text-align: center;
+                border-radius: 20px 20px;
+            }
+
+            .box h1{
+                color: white;
+                text-transform: uppercase;
+                font-weight: 500;
+                background: linear-gradient(
+                    to right,
+                    hsl(1 100% 50%),
+                    hsl(100 100% 50%)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-align: center;
+            }
+
+            .box input[type = "text"],.box input[type = "password"]{
+                border:0;
+                background: none;
+                display: block;
+                margin: 5px auto;
+                text-align: center;
+                border: 2px solid #D4AC0D;
+                padding: 14px 10px;
+                width: 200px;
+                outline: none;
+                color: white;
+                border-radius: 24px;
+                transition: 0.5s;
+            }
+
+            .box input[type = "text"]:focus,.box input[type = "password"]:focus{
+                border-color: #A04000;
+                width: 250px;
+            }
+
+            .box input[type = "text"]:hover,.box input[type = "password"]:hover{
+                border-color: #A04000;
+            }
+
+            .box input[type = "submit"]{
+                border:0;
+                background: none;
+                display: block;
+                margin: 20px auto;
+                text-align: center;
+                border: 2px solid #D4AC0D;
+                padding: 14px 40px;
+                outline: none;
+                color: white;
+                transition: 0.25s;
+                cursor: pointer;
+            }
+
+            .box input[type = "submit"]:focus{
+                border-color: #D4AC0D;
+            }
+
+            .box input[type = "submit"]:hover{
+                background: #D4AC0D;
+                border-radius: 24px;
+            }
+
+            a{
+                font-size: 20px;
+
+            }
+            a:link, a:visited {
+
+                color: white;
+                padding: 14px 25px;
+                text-align: center;
+                text-decoration: none;
+             display: inline-block;
+            }
+
+            a:hover, a:active {
+            background-color: green;
+            }
+        </style>
+    </head>
+<body>
+<div class="box">
+
+{% block main %}
+<h1>REGISTER</h1>
+    <form action="/register_user" method="post" enctype="multipart/form-data" >
+
+        <div class="form-group">
+
+        <br>
+        <br>
+        <div class="form-group">
+            <input autocomplete="off"
+            autofocus
+            class="form-control"
+            name="username"
+            placeholder="🗒 Username"
+            id ="hoverin"
+            type="text"
+            style="border-radius:50px"
+            />
+        </div>
+        <div class="form-group">
+            <input autocomplete="off"
+            autofocus
+            class="form-control"
+            name="name"
+            placeholder="🗒 your name"
+            id ="hoverin"
+            type="text"
+            style="border-radius:50px"
+            />
+        </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div>
+                <input type="submit" value="SIGN UP" id="register">
+            </div>
+            <label style="color: #fff;">
+                 Already have an account ?, click <a style="color: aqua;" href="/login">Login.</a>
+            </label>
+        {% if (messager == 1 ) %}
+            <div style="text-align:center">
+
+                <header class="inv" style="color:white;box-shadow: 5px 7px 15px black;border: 2px solid red;border-radius: 50px;background-color: red;width:200px">
+                    &#9997  Enter username.
+                </header>
+                <br>
+
+            </div>
+        {% endif %}
+
+        {% if (messager == 5 ) %}
+            <div>
+                <br>
+                <header  style="color:white;box-shadow: 5px 7px 15px black;border: 2px solid red;border-radius: 50px;background-color: red;width:220px">
+                    &#9997 Username Already Taken.
+                </header>
+            </div>
+
+            {% endif %}
+    </form>
+
+    </div>
+
+    {% endblock %}
+</div>
+</body>
+</html
